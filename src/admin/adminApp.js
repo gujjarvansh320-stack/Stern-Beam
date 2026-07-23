@@ -830,11 +830,11 @@ function renderShell(mountSelector) {
           <div class="admin-row">
             <div class="admin-field">
               <label for="rName">Customer name</label>
-              <input type="text" id="rName" name="name" placeholder="John Carter" required />
+              <input type="text" id="rName" name="name" placeholder="Martin Carter" required />
             </div>
             <div class="admin-field">
               <label for="rEmail">Customer email</label>
-              <input type="email" id="rEmail" name="email" placeholder="john@email.com" required />
+              <input type="email" id="rEmail" name="email" placeholder="martin@email.com" required />
             </div>
           </div>
           <div class="admin-row">

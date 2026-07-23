@@ -39,16 +39,16 @@ export function renderContactSection(mountSelector = '#contact-mount') {
           <div class="form-row">
             <div class="form-field">
               <label for="fName">Full name</label>
-              <input type="text" id="fName" name="name" placeholder="John Carter" required />
+              <input type="text" id="fName" name="name" placeholder="Martin Carter" required />
             </div>
             <div class="form-field">
               <label for="fEmail">Email</label>
-              <input type="email" id="fEmail" name="email" placeholder="john@email.com" required />
+              <input type="email" id="fEmail" name="email" placeholder="martin@email.com" required />
             </div>
           </div>
           <div class="form-field">
             <label for="fVehicle">Vehicle model</label>
-            <input type="text" id="fVehicle" name="vehicle" placeholder="e.g. 2021 Ford Ranger" />
+            <input type="text" id="fVehicle" name="vehicle" placeholder="e.g. 2021 Ford " />
           </div>
           <div class="form-field">
             <label for="fMessage">Message</label>

@@ -175,7 +175,7 @@ export function renderWarrantySection(mountSelector = '#warranty-mount') {
               </div>
               <div class="warranty-field">
                 <label for="lEmail">Email used at registration</label>
-                <input type="email" id="lEmail" name="email" placeholder="john@email.com" required />
+                <input type="email" id="lEmail" name="email" placeholder="martin@email.com" required />
               </div>
             </div>
             <button type="submit" class="btn btn-primary warranty-submit" data-magnetic>
