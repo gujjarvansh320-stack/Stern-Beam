@@ -43,10 +43,10 @@ export function renderNav(mountSelector = '#nav-mount') {
       </button>
     </header>
 
-    <div class="mobile-menu" id="mobileMenu">
-      ${mobileLinks}
-      // <a href="/admin" class="btn btn-primary" style="margin-top:24px;">Register E Warranty</a>
-    </div>
+    // <div class="mobile-menu" id="mobileMenu">
+    //   ${mobileLinks}
+    //   <a href="/admin" class="btn btn-primary" style="margin-top:24px;">Register E Warranty</a>
+    // </div>
 
     <div class="scroll-progress" id="scrollProgress"></div>
   `;
