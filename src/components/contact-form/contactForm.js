@@ -1,5 +1,5 @@
 import './contactForm.css';
-import { FaInstagramSquare } from "react-icons/fa";
+// import { FaInstagramSquare } from "react-icons/fa";
 
 /** Renders the full contact section: info column + form. */
 export function renderContactSection(mountSelector = '#contact-mount') {
