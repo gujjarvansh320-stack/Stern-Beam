@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stern Beam — Automotive Lighting Systems</title>
+<meta name="description" content="Stern Beam engineers precision headlights, fog lamps, LED bars and tail light systems for drivers who won't compromise on visibility." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Preloader markup stays static here since it must be visible before any JS/CSS module finishes loading -->
+<div id="preloader" aria-hidden="true">
+  <div class="preloader-lens">
+    <div class="preloader-ring"></div>
+    <div class="preloader-core"></div>
+  </div>
+  <div class="preloader-text">STERN BEAM</div>
+  <div class="preloader-bar"><span></span></div>
+</div>
+
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Every section below is an empty mount point.
+     src/main.js imports each component and renders into these. -->
+<div id="nav-mount"></div>
+
+<main>
+  <div id="hero-mount"></div>
+  <div id="products-mount"></div>
+  <div id="warranty-mount"></div>
+  <div id="about-mount"></div>
+  <div id="journal-mount"></div>
+  <div id="contact-mount"></div>
+</main>
+
+<div id="footer-mount"></div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

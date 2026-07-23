@@ -1,0 +1,143 @@
+/* =========================================================
+   Base — reset, typography, and utility classes shared across
+   every component (buttons, eyebrows, section spacing, etc).
+   Global one-off overlays (cursor, grain, preloader, nav
+   progress bar) live here too since they aren't tied to one
+   section of the page.
+   ========================================================= */
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media(prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:700;
+  letter-spacing:0.01em;
+  margin:0;
+  color:var(--text);
+}
+h2{ font-size:clamp(2.1rem, 4.4vw, 3.4rem); line-height:1.08; }
+h3{ font-size:1.3rem; line-height:1.25; }
+p{ margin:0; color:var(--text-muted); }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; }
+input,textarea{ font-family:inherit; }
+ul{ list-style:none; margin:0; padding:0; }
+svg{ display:block; }
+img,canvas{ display:block; max-width:100%; }
+::selection{ background:var(--xenon); color:#04121B; }
+
+/* ---- Layout utilities ---- */
+section{ position:relative; padding:150px max(24px, calc((100vw - var(--container)) / 2)); }
+@media(max-width:900px){ section{ padding:100px 24px; } }
+
+.eyebrow{
+  display:flex; align-items:center; gap:9px;
+  font-family:var(--font-mono);
+  font-size:12px; letter-spacing:0.18em;
+  color:var(--xenon);
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+.eyebrow-dot{
+  width:6px; height:6px; border-radius:50%;
+  background:var(--xenon);
+  box-shadow:0 0 10px 2px var(--xenon);
+  flex:none;
+}
+.section-head{ max-width:680px; margin-bottom:64px; }
+.section-desc{ margin-top:18px; max-width:520px; font-size:1.05rem; }
+
+/* ---- Buttons (used by nav, hero, contact form...) ---- */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:15px 26px;
+  border-radius:100px;
+  font-family:var(--font-body);
+  font-weight:600; font-size:14.5px;
+  border:1px solid transparent;
+  transition:transform .35s var(--ease), background .3s, border-color .3s, color .3s;
+  will-change:transform;
+}
+.btn-primary{ background:var(--xenon-bright); color:#04121B; }
+.btn-primary:hover{ background:var(--white-lamp); transform:translateY(-2px); }
+.btn-primary svg{ transition:transform .3s var(--ease); }
+.btn-primary:hover svg{ transform:translateX(3px); }
+
+.btn-ghost{ background:transparent; border-color:var(--border); color:var(--text); }
+.btn-ghost:hover{ border-color:var(--xenon); color:var(--xenon-bright); transform:translateY(-2px); }
+
+/* ---- Reveal-on-scroll base state (GSAP animates from this) ---- */
+.reveal-up{ opacity:0; transform:translateY(28px); }
+
+/* ---- Custom cursor ---- */
+.cursor-dot,.cursor-ring{
+  position:fixed; top:0; left:0; pointer-events:none; z-index:9999;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  mix-blend-mode:difference;
+}
+.cursor-dot{ width:6px; height:6px; background:var(--xenon-bright); }
+.cursor-ring{
+  width:34px; height:34px; border:1px solid var(--xenon);
+  transition:width .25s var(--ease), height .25s var(--ease), opacity .25s;
+  opacity:0.7;
+}
+.cursor-ring.hovering{ width:56px; height:56px; opacity:1; border-color:var(--white-lamp); }
+@media(hover:none),(pointer:coarse){ .cursor-dot,.cursor-ring{ display:none; } }
+
+/* ---- Grain overlay ---- */
+.grain{
+  position:fixed; inset:0; z-index:9000; pointer-events:none;
+  opacity:0.035; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Preloader ---- */
+#preloader{
+  position:fixed; inset:0; z-index:10000;
+  background:var(--bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
+  transition:opacity .8s var(--ease), visibility .8s;
+}
+#preloader.done{ opacity:0; visibility:hidden; }
+.preloader-lens{ position:relative; width:70px; height:70px; }
+.preloader-ring{
+  position:absolute; inset:0; border-radius:50%;
+  border:2px solid var(--border);
+  border-top-color:var(--xenon);
+  animation:spin 1s linear infinite;
+}
+.preloader-core{
+  position:absolute; inset:24px; border-radius:50%;
+  background:var(--xenon-bright);
+  box-shadow:0 0 24px 6px var(--xenon);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@keyframes pulse{ 0%,100%{ opacity:.6; transform:scale(.85);} 50%{ opacity:1; transform:scale(1);} }
+.preloader-text{ font-family:var(--font-display); letter-spacing:.3em; font-size:13px; color:var(--text-muted); }
+.preloader-bar{ width:160px; height:2px; background:var(--border-soft); overflow:hidden; border-radius:2px; }
+.preloader-bar span{ display:block; height:100%; width:0%; background:var(--xenon); transition:width .3s; }
+
+/* ---- Scroll progress bar ---- */
+.scroll-progress{
+  position:fixed; top:0; left:0; height:2px; width:0%;
+  background:linear-gradient(90deg, var(--xenon), var(--amber));
+  z-index:600;
+}

@@ -1,0 +1,5 @@
+/* Global stylesheet — imported once in src/main.js.
+   Component CSS is imported separately, inside each component's
+   own .js file, so a component's styles travel with it. */
+@import './tokens.css';
+@import './base.css';

@@ -1,0 +1,56 @@
+/* Hero component — scoped to .hero and its children.
+   Background is a plain, flat gradient (no photo) — a single soft xenon-blue
+   glow fading to near-black, echoing the brand's accent color used
+   throughout nav/buttons/specs elsewhere on the page. */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding-top:120px;
+  overflow:hidden;
+  background:radial-gradient(ellipse 70% 55% at 72% 28%, #1c3a4d 0%, #0d1418 55%, #05070a 100%);
+}
+
+.hero-vignette{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 50% 40%, transparent 40%, var(--bg) 100%);
+}
+.hero-content{ position:relative; z-index:2; max-width:640px; }
+.hero-title{ font-size:clamp(2.6rem, 6vw, 4.8rem); line-height:1.04; margin-bottom:26px; }
+.hero-title .line{ display:block; overflow:hidden; }
+.hero-title em{ font-style:normal; color:var(--xenon-bright); text-shadow:0 0 30px rgba(110,200,255,.45); }
+.hero-sub{ font-size:1.1rem; max-width:480px; margin-bottom:34px; }
+.hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+
+.hero-specs{
+  position:relative; z-index:2;
+  display:flex; align-items:center; gap:28px;
+  margin-top:86px;
+  padding:22px 28px;
+  background:rgba(20,22,26,0.55);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius-md);
+  backdrop-filter:blur(10px);
+  max-width:fit-content;
+}
+.hero-spec{ display:flex; flex-direction:column; gap:4px; }
+.hero-spec-value{ font-family:var(--font-mono); font-size:1.15rem; color:var(--xenon-bright); }
+.hero-spec-label{ font-size:11.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em; }
+.hero-spec-divider{ width:1px; height:30px; background:var(--border); }
+
+.scroll-cue{
+  position:absolute; bottom:36px; left:max(24px, calc((100vw - var(--container)) / 2));
+  z-index:2; display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.scroll-cue span{ font-family:var(--font-mono); font-size:10px; letter-spacing:.2em; color:var(--text-faint); writing-mode:vertical-rl; }
+.scroll-cue-line{ width:1px; height:48px; background:var(--border); position:relative; overflow:hidden; }
+.scroll-cue-line i{
+  position:absolute; top:-50%; left:0; width:100%; height:50%; background:var(--xenon);
+  animation:cueMove 1.8s ease-in-out infinite;
+}
+@keyframes cueMove{ 0%{ top:-50%; } 100%{ top:100%; } }
+
+@media(max-width:900px){
+  .hero-specs{ flex-wrap:wrap; gap:18px 24px; }
+  .scroll-cue{ display:none; }
+}

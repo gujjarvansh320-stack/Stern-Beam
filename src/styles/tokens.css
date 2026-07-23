@@ -1,0 +1,36 @@
+/* =========================================================
+   Design tokens — the single palette/type/spacing scale every
+   component pulls from. Change a brand color here, it updates
+   everywhere at once.
+   ========================================================= */
+:root{
+  --bg:            #08090B;
+  --bg-alt:        #0E1013;
+  --surface:       #14161A;
+  --card:          #1A1D22;
+  --border:        #262A31;
+  --border-soft:   #1E2126;
+
+  --text:          #F5F7FA;
+  --text-muted:    #9AA1AC;
+  --text-faint:    #5B616C;
+
+  --xenon:         #6EC8FF;
+  --xenon-bright:  #B9E6FF;
+  --amber:         #FFA53E;
+  --amber-bright:  #FFD199;
+  --red:           #FF4438;
+  --red-bright:    #FF8A81;
+  --white-lamp:    #F5F7FA;
+
+  --font-display: 'Rajdhani', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+
+  --container: 1240px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  --ease: cubic-bezier(.16,.84,.44,1);
+}
