@@ -83,7 +83,7 @@ export async function serialExists(serial) {
 export async function registerWarranty({ name, email, productId, productTitle, serial, purchaseDate, dealer, carNumber }) {
   // Calculate 1-year expiry
   const pDate = new Date(purchaseDate);
-  pDate.setFullYear(pDate.getFullYear() + 1);
+  pDate.setFullYear(pDate.getFullYear() + 2);
   const calculatedExpiry = pDate.toISOString().split('T')[0];
 
   return addDoc(collection(db, COLLECTION_NAME), {
@@ -147,7 +147,7 @@ export async function updateWarranty(docId, updatedFields) {
   // If the admin is updating the purchase date, we must recalculate the 1-year expiry
   if (updatedFields.purchaseDate) {
     const pDate = new Date(updatedFields.purchaseDate);
-    pDate.setFullYear(pDate.getFullYear() + 1);
+    pDate.setFullYear(pDate.getFullYear() + 2);
     updatedFields.ExpiryDate = pDate.toISOString().split('T')[0];
   }
 
