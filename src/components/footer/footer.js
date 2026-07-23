@@ -41,7 +41,7 @@ export function renderFooter(products, mountSelector = '#footer-mount') {
         </div>
       </div>
       <div class="footer-bottom">
-<p>&copy; 2026 Stern Beam Lighting Co. All Rights Reserved. | Designed & Developed by <a href="https://elite-web-agency-neon.vercel.app" target="_blank" rel="noopener noreferrer">Elite Web Agency</a></p>    </footer>
+<p>&copy; 2026 Stern Beam Lighting Co. All Rights Reserved. | Designed & Developed by <a href="https://elite-web-agency-neon.vercel.app" target="_blank" rel="noopener noreferrer" class="agency-link">Elite Web Agency</a></p>    </footer>
   `;
 }
 
