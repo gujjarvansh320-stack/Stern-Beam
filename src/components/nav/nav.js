@@ -36,7 +36,7 @@ export function renderNav(mountSelector = '#nav-mount') {
 
       <nav class="nav-links" id="navLinks">${desktopLinks}</nav>
 
-      <a href="/admin" class="btn btn-primary nav-cta" data-cursor-pop>Register E Warranty</a>
+      // <a href="/admin" class="btn btn-primary nav-cta" data-cursor-pop>Register E Warranty</a>
 
       <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -45,7 +45,7 @@ export function renderNav(mountSelector = '#nav-mount') {
 
     <div class="mobile-menu" id="mobileMenu">
       ${mobileLinks}
-      <a href="/admin" class="btn btn-primary" style="margin-top:24px;">Register E Warranty</a>
+      // <a href="/admin" class="btn btn-primary" style="margin-top:24px;">Register E Warranty</a>
     </div>
 
     <div class="scroll-progress" id="scrollProgress"></div>
