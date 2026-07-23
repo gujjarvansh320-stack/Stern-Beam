@@ -77,7 +77,11 @@ export function initNav() {
     mobileMenu.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  mobileMenu.querySelectorAll('.mobile-link').forEach((l) =>
+
+  // Close the mobile menu when ANY link inside it is clicked — this covers
+  // both the nav links (.mobile-link) and the "Get a Quote" button, which
+  // doesn't have that class but is still an <a> inside #mobileMenu.
+  mobileMenu.querySelectorAll('a').forEach((l) =>
     l.addEventListener('click', () => {
       burger.classList.remove('open');
       mobileMenu.classList.remove('open');
