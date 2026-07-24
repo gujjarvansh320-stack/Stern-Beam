@@ -245,7 +245,7 @@ export function initAdminApp(mountSelector = '#admin-mount') {
       showMessage(registerMessage, 'Warranty registered.', 'success');
       registerForm.reset();
     } catch (err) {
-      showMessage(registerMessage, "Couldn't reach the server. Please try again.", 'error');
+      showMessage(registerMessage, "Some required details are missing. Please check the form and try again.", 'error');
     } finally {
       setSending(button, false);
     }
