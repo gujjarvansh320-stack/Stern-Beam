@@ -58,7 +58,7 @@ specs: [
       { label: "Color", value: "Single Color" },
       { label: "Beam", value: "High Beam with Laser" },
       { label: "Rating", value: "IP68" },
-      { label: "Watt", value: "160W" },
+      { label: "Watt", value: "150W" },
     ],
   },
   {
