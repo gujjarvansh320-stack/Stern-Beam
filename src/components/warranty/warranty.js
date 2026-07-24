@@ -230,7 +230,25 @@ export function initWarrantyForms() {
       }
 
       // Uses the exact expiry date calculated by your backend database (Fixes the 5-year bug!)
-      const expiry = new Date(record.ExpiryDate);
+      // const expiry = new Date(record.ExpiryDate);
+      // const status = getWarrantyStatus(expiry);
+
+// Determine if the product is a projector (case-insensitive check)
+      const productName = (record.productTitle || '').toLowerCase();
+      const isProjector = productName.includes('projector');
+      
+      let expiry;
+      
+      if (isProjector) {
+        // Calculate exactly 1 year from the original purchase date
+        const purchaseDate = new Date(record.purchaseDate);
+        expiry = new Date(purchaseDate);
+        expiry.setFullYear(expiry.getFullYear() + 1);
+      } else {
+        // Fall back to the database expiry (e.g., standard 2 years)
+        expiry = new Date(record.ExpiryDate);
+      }
+      
       const status = getWarrantyStatus(expiry);
 
       resultBox.innerHTML = `
